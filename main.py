@@ -4,6 +4,11 @@ import RPi.GPIO as GPIO
 
 def main(url:str) -> None:
     
+    GPIO.setmode(GPIO.Board)
+    GPIO.setwarnings(False)
+    GPIO.setup(38, GPIO.OUT)
+    GPIO.setup(40, GPIO.OUT)
+    
     while True:
         response = get_request(url=url)
         
@@ -27,10 +32,5 @@ if __name__ == '__main__':
     API_ENDPOINT: str = config['server']['endopoint']
     
     URL = f"http://{IP_SERVER}:{PORT_SERVER}{API_ENDPOINT}"
-    
-    GPIO.setmode(GPIO.Board)
-    GPIO.setwarnings(False)
-    GPIO.setup(38, GPIO.OUT)
-    GPIO.setup(40, GPIO.OUT)
     
     main(url=URL)
