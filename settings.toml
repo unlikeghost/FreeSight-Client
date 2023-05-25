@@ -1,0 +1,12 @@
+title = "Free Sight Client"
+description = "A simple client for Free Sight System on Raspberry Pi"
+version = "0.0.1"
+
+[authors]
+main_author = "Jesus Alan Hernandez Galvan"
+colaborador = "Luis angel Fernandez Anchondo"
+
+[server]
+ip = "192.168.100.8"
+port = 8080
+endopoint = "/api/v1/public/domo"
