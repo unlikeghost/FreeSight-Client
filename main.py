@@ -4,7 +4,7 @@ import RPi.GPIO as GPIO
 
 def main(url:str) -> None:
     
-    GPIO.setmode(GPIO.Board)
+    GPIO.setmode(GPIO.BOARD)
     GPIO.setwarnings(False)
     GPIO.setup(38, GPIO.OUT)
     GPIO.setup(40, GPIO.OUT)
@@ -15,6 +15,7 @@ def main(url:str) -> None:
         led1_status = bool(response.json()['status_1'])
         led2_status = bool(response.json()['status_2'])
         
+        print(f"LED 1: {led1_status}, LED 2: {led2_status}")
         GPIO.output(38, led1_status)
         GPIO.output(40, led2_status)
         
