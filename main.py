@@ -12,8 +12,8 @@ def main(url:str) -> None:
     while True:
         response = get_request(url=url)
         
-        led1_status = bool(response.json()['status_1'])
-        led2_status = bool(response.json()['status_2'])
+        led1_status = not(bool(response.json()['status_1']))
+        led2_status = not(bool(response.json()['status_2']))
         
         print(f"LED 1: {led1_status}, LED 2: {led2_status}")
         GPIO.output(38, led1_status)
